@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HKUST Virtual Try-On Kiosk — Interactive Demo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="demo-container kiosk-mode">
+    <!-- Top Demo Header -->
+    <div class="demo-header">
+      <div class="demo-header-left">
+        <img src="https://souvenir.hkust.edu.hk/image/HKUST-Chi.svg" alt="HKUST">
+        <span class="sep">|</span>
+        <img src="https://souvenir.hkust.edu.hk/image/Souvenir-Shop-Chi.svg" alt="Souvenir Shop">
+      </div>
+      <div class="demo-header-right">
+        <span class="demo-header-badge">INTERACTIVE DEMO</span>
+      </div>
+    </div>
+
+    <!-- Split-screen Body -->
+    <div class="demo-body">
+      <!-- iPad Frame -->
+      <div class="ipad-frame">
+        <div class="ipad-header">
+          <div class="ipad-header-left">
+            <img class="logo-hkust" src="https://souvenir.hkust.edu.hk/image/HKUST-Chi.svg" alt="HKUST">
+            <span class="sep">|</span>
+            <img class="logo-shop" src="https://souvenir.hkust.edu.hk/image/Souvenir-Shop-Chi.svg" alt="Souvenir Shop">
+          </div>
+          <div class="model-selector">
+            <span>Virtual Try-On 001</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="ipad-content" id="ipad-screen"></div>
+      </div>
+
+      <!-- Phone Frame -->
+      <div class="phone-wrapper">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-content" id="phone-screen">
+            <div class="phone-sleep">
+              <span></span>
+            </div>
+          </div>
+          <div class="phone-home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Autoplay Control Bar -->
+    <div class="control-bar" id="control-bar">
+      <button class="ctrl-btn active" id="btn-play-pause" title="播放/暫停">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg>
+        <span>暫停</span>
+      </button>
+      <span class="ctrl-step" id="ctrl-step">Step 1 / 15</span>
+      <select class="ctrl-speed" id="ctrl-speed" title="播放速度">
+        <option value="0.5">0.5x</option>
+        <option value="1" selected>1x</option>
+        <option value="2">2x</option>
+      </select>
+      <button class="ctrl-btn" id="btn-skip" title="跳過">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></svg>
+        <span>跳過</span>
+      </button>
+      <button class="ctrl-btn" id="btn-reset" title="重置">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <span>重置</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Demo Cursor -->
+  <div id="demo-cursor">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 3L19 12L12 13L9 20L5 3Z" fill="#003366" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Scripts in dependency order -->
+  <script src="js/data.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/screens.js"></script>
+  <script src="js/autoplay.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
